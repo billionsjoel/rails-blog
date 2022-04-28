@@ -8,5 +8,8 @@ RSpec.describe 'Posts', type: :request do
     it 'should respond with status ok' do
       expect(response).to have_http_status(200)
     end
+    it 'should render the index template for posts' do
+      expect(response).to render_template(:index)
+    end
   end
 end
