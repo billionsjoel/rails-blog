@@ -13,4 +13,8 @@ RSpec.describe "Users", type: :request do
     expect(response.body).to include('Home page')
     end
   end
+
+  describe "GET /users/:id" do
+    
+  end
 end
