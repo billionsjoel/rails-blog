@@ -20,7 +20,7 @@ RSpec.describe 'Users', type: :request do
       expect(response).to have_http_status(:ok)
     end
     it 'should render the show template' do
-      extend(response).to render_template(:show)
+      expect(response).to render_template(:show)
     end
   end
 end
