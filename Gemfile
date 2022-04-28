@@ -60,7 +60,7 @@ end
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem 'web-console'
-   %w[rspec-core rspec-expectations rspec-mocks rspec-rails rspec-support].each do |lib|
+  %w[rspec-core rspec-expectations rspec-mocks rspec-rails rspec-support].each do |lib|
     gem lib, git: "https://github.com/rspec/#{lib}.git", branch: 'main'
   end
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
