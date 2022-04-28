@@ -15,5 +15,9 @@ RSpec.describe 'Users', type: :request do
   end
 
   describe 'GET /users/:id' do
+    before(:example) {get user_path(1)}
+    it 'should return response ok' do
+      expect(response).to have_http_status(:ok)
+    end
   end
 end
