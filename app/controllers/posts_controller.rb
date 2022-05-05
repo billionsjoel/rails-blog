@@ -28,4 +28,20 @@ class PostsController < ApplicationController
       render :new
     end
   end
+
+  def update
+    new_post = :new_post
+    saved_post = find_post
+    saved_post.title = new_post.title
+    save_post.text = new_post.text
+
+    if save_post.save
+      flash[:success]='Post has been updated'
+      redirect_to user_post_url(id:@post.id)
+    else
+      @post = saved_post
+      flash.now[:alert] = 'Invalid Input'
+      render :edit
+    end
+  end
 end
