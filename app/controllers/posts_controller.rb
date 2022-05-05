@@ -8,4 +8,10 @@ class PostsController < ApplicationController
     @post = Post.find params[:id]
     @comments = @post.recent_comments
   end
+
+  def new
+    @user = User.find(params[:user_id])
+    @post = Post.new
+  end
+
 end
