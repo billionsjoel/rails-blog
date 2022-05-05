@@ -1,4 +1,5 @@
 <section class="container">
     <%=render 'components/postShow',post:@post%>
     <%=render 'components/comments',comments:@comments%>
+    <%=link_to 'Edit post', edit_user_post_path(@post),class:'btn btn-primary align-self-start'%>
 </section>
