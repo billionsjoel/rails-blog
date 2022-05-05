@@ -1,1 +1,4 @@
-<h1>Showing posts with Postid: <%= params[:user_id] %> for user with id: <%= params[:id] %> </h1>
+<section class="container">
+    <%=render 'components/post_show',post:@post%>
+    <%=render 'components/comments',comments:@comments%>
+</section>
