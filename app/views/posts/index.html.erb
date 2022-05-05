@@ -5,8 +5,11 @@
         <div>
                 <%@posts.each do |post|%>
                     <div class="my-5">
-                        <%=render 'components/post',post:post%>
-                        <%=render 'components/comments',comments:post.comments%>
+                        <%=render 'components/postShow',post:post%>
+                        <%=render 'components/comments',comments:post.recent_comments%>
+                        <%=link_to user_post_path(id:post.id) ,{:class=>'list-group-item-action p-0 m-0'} do%>
+                            <button class="btn btn-success ">See Post</button>
+                        <%end%>
                     </div>
                 <%end%>
         </div>
