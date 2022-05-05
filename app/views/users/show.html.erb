@@ -1,6 +1,6 @@
 <section class="container">
     <header>
-        <%=render 'component/user', user:@user %>
+        <%=render 'components/user', user:@user %>
     </header>
     <section class="card text-dark bg-light">
         <div class="card-header">Bio</div>
@@ -13,7 +13,7 @@
     <ul class='list-group'>
     <%@user.last_three_posts.each do |post|%>
         <li class="list-group-item px-0">
-            <%=render 'component/post', post:post%>
+            <%=render 'components/post', post:post%>
         </li>
       <%end%>
     </ul>
