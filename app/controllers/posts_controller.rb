@@ -44,4 +44,12 @@ class PostsController < ApplicationController
       render :edit
     end
   end
+
+  private
+
+  def new_post
+    Post.new(params.require(:post).permit(:title,:text))
+  end
+
+
 end
