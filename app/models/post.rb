@@ -4,12 +4,12 @@ class Post < ApplicationRecord
   has_many :comments
 
   def update_posts_count(value)
-   user = User.where('id = ?',self.author_id).first
-   user.posts_counter = value
-   user.save
+    user = User.where('id = ?', self.author_id).first
+    user.posts_counter = value
+    user.save
   end
 
   def recent_comments
-   Comment.where('post_id = ?',self.id).last(3)
+    Comment.where('post_id = ?', self.id).last(3)
   end
 end

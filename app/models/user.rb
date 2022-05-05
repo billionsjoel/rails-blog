@@ -4,6 +4,6 @@ class User < ApplicationRecord
   has_many :comments
 
   def last_three_posts
-      Post.where('author_id = ?',self.id).last(3)
+    Post.where('author_id = ?', self.id).last(3)
   end
 end
