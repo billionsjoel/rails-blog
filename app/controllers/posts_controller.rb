@@ -19,7 +19,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = new_post
+    @post = create_new_post
     @post.author_id = params[:user_id]
     if @post.save
       flash[:success]='Post created Successfully'
@@ -30,12 +30,12 @@ class PostsController < ApplicationController
   end
 
   def update
-    new_post = :new_post
-    saved_post = find_post
-    saved_post.title = new_post.title
-    save_post.text = new_post.text
+    new_post = create_new_post
+    @post = find_post
+    @post.title = new_post.title
+    @post.text = new_post.text
 
-    if save_post.save
+    if @post.save
       flash[:success]='Post has been updated'
       redirect_to user_post_url(id:@post.id)
     else
@@ -47,7 +47,7 @@ class PostsController < ApplicationController
 
   private
 
-  def new_post
+  def create_new_post
     Post.new(params.require(:post).permit(:title,:text))
   end
 
