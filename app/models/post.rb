@@ -9,7 +9,7 @@ class Post < ApplicationRecord
   end
 
   def path
-    post_path id:id,user_id:author.id
+    post_path id: id, user_id: author.id
   end
 
   private
@@ -17,5 +17,4 @@ class Post < ApplicationRecord
   def update_posts_count
     author.increment!(:posts_counter)
   end
-
 end
