@@ -1,5 +1,6 @@
 <div class="contaner">
 
 	<h2 class="h1 text-center">Edit this post</h2>
-	<%=render 'components/postForm',locals:{post:@post,user}%>
-</div>
+  <%=form_with url:user_post_path,model:@post, scope: :post,local: true,class:'container w-50' do |f|%>
+	    <%=render 'components/postForm',post:@post,form:f%>
+	<%end%></div>
