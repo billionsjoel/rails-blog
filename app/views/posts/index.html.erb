@@ -1,5 +1,5 @@
 <section class="container">
-        <header>
+        <header class="p-4">
             <%=render 'components/user',user:@user%>
         </header>
         <div>
@@ -8,7 +8,7 @@
                         <%=render 'components/postShow',post:post%>
                         <%=render 'components/comments',comments:post.recent_comments%>
                         <%=link_to user_post_path(id:post.id) ,{:class=>'list-group-item-action p-0 m-0'} do%>
-                            <button class="btn btn-success ">See Post</button>
+                            <button class="btn btn-sm btn-primary ">See Post</button>
                         <%end%>
                     </div>
                 <%end%>

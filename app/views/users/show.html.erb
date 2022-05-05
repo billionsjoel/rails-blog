@@ -13,9 +13,9 @@
     <ul class='list-group'>
     <%@user.last_three_posts.each do |post|%>
         <li class="list-group-item px-0">
-            <%=render 'components/user', post:post%>
+            <%=render 'components/post', post:post%>
         </li>
       <%end%>
     </ul>
-    <%=render 'components/nextButton',text:"See Posts"%>
+    <%=render 'components/nextButton',text:"See all Posts"%>
 </section>
