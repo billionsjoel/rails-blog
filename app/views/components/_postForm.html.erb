@@ -1,9 +1,12 @@
 <%=form_with url:user_posts_path(user_id:post.author_id,id:post.id), scope: :post,local: true,class:'container w-50' do |f|%>
-		<%=f.label :title,class:'form-label'%><br/>
-		<%=f.text_field :title,class:'form-control'%> <br/>
+  <div>
+		<%=form.label :title,class:'form-label'%><br/>
+		<%=form.text_field :title,class:'form-control'%> <br/>
 
-		<%=f.label :text,class:'form-label'%><br/>
-		<%=f.text_area :text,class:'form-control',style:"height: 200px"%><br/>
+		<%=form.label :text,class:'form-label'%><br/>
+		<%=form.text_area :text,class:'form-control',style:"height: 200px"%><br/>
 
-		<%=f.submit nil,class:'btn btn-secondary'%>
+		<%=form.submit nil,class:'btn btn-primary'%>
+  </div>
+
 <%end%>
