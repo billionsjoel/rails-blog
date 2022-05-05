@@ -8,4 +8,8 @@ class Post < ApplicationRecord
    user.posts_counter = value
    user.save
   end
+
+  def recent_comments
+   Comment.where('post_id = ?',self.id).last(3)
+  end
 end
