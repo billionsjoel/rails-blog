@@ -5,13 +5,17 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.find params[:id]
-    @comments = @post.recent_comments
+    @post = find_post
+    @comments = @post.comments
   end
 
   def new
     @user = User.find(params[:user_id])
     @post = Post.new
+  end
+
+  def edit
+    @post = find_post
   end
 
   def create
