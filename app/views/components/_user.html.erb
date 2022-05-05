@@ -1,16 +1,16 @@
 <div class="row">
       <div class="col-4">
-        <img src=<%=user.photo%> class="user-pic" alt=<%=user.name%>>
+        <img src=<%=@user.photo%> class="user-pic" alt=<%=@user.name%>>
       </div>
       <li class="card col-7">
           <div class="col-6">
               <h2>
-                  <%=user.name%>
+                  <%=@user.name%>
               </h2>
           </div>
           <div class="col-6">
               <p>Number of posts:
-                  <%=user.posts_counter%>
+                  <%=@user.posts_counter%>
               </p>
           </div>
       <li>

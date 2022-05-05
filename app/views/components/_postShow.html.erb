@@ -1,7 +1,7 @@
 <div class="card">
     <header class="d-flex p-3 justify-content-between card-title">
         <%="#{post.title} by #{post.author.name}"%>
-        <%=render 'shared/post_counters',post:post%>
+        <%=render 'components/postCounter',post:post%>
     </header>
     <p class="card-body">
         <%=post.text%>

@@ -13,7 +13,7 @@
     <ul class='list-group'>
     <%@user.last_three_posts.each do |post|%>
         <li class="list-group-item px-0">
-            <%=render 'components/post', post:post%>
+            <%=render 'components/user', post:post%>
         </li>
       <%end%>
     </ul>
