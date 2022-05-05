@@ -4,6 +4,8 @@ class Post < ApplicationRecord
   has_many :comments
   after_save :update_posts_count
 
+  private
+
   def update_posts_count
     author.increment!(:posts_counter)
   end
