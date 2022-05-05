@@ -1,3 +1,13 @@
-<div class="container">
-    <%=render 'components/user',user:@user%>
-</div>
+<section class="container">
+        <header>
+            <%=render 'components/user',user:@user%>
+        </header>
+        <div>
+                <%@posts.each do |post|%>
+                    <div class="my-5">
+                        <%=render 'components/post',post:post%>
+                        <%=render 'components/comments',comments:post.comments%>
+                    </div>
+                <%end%>
+        </div>
+</section>
