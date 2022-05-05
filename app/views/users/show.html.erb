@@ -1,1 +1,21 @@
-<h1> Showing user <%= params[:id] %></h1>
+<section class="container">
+    <header>
+        <%=render 'components/user', user:@user %>
+    </header>
+    <section class="card text-dark bg-light">
+        <div class="card-header">Bio</div>
+        <div class="card-body">
+            <p class="card-text">
+                <%=@user.bio%>
+            </p>
+        </div>
+    </section>
+    <ul class='list-group'>
+    <%@user.last_three_posts.each do |post|%>
+        <li class="list-group-item px-0">
+            <%=render 'components/post', post:post%>
+        </li>
+      <%end%>
+    </ul>
+    <%=render 'components/nextButton',text:"See all Posts"%>
+</section>

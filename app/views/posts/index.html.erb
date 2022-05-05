@@ -1,1 +1,17 @@
-<h1> Showing all posts for user with id: <%= params[:id] %></h1>
+<section class="container">
+        <header class="p-4">
+            <%=render 'components/user',user:@user%>
+        </header>
+        <div>
+                <%@posts.each do |post|%>
+                    <div class="my-5">
+                        <%=render 'components/postShow',post:post%>
+                        <%=render 'components/comments',comments:post.recent_comments%>
+                        <%=link_to user_post_path(id:post.id) ,{:class=>'list-group-item-action p-0 m-0'} do%>
+                            <button class="btn btn-sm btn-primary ">See Post</button>
+                        <%end%>
+                    </div>
+                <%end%>
+        </div>
+  <%=render 'components/nextButton',text:"Next Page"%>
+</section>

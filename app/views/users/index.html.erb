@@ -1,1 +1,9 @@
-<h1> Home page </h1>
+<div class="container">
+    <%@users.each do |user|%>
+    <div class="user-group">
+        <%=link_to user_path(id:user.id) ,class:'' do%>
+          <%=render 'components/user', user: user%>
+        <%end%>
+    </div>
+    <% end %>
+</div>
