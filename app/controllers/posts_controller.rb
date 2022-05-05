@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   def index
     @user = current_user
-    @posts = current_user.posts
+    @posts = current_user.last_three_posts
   end
 end
