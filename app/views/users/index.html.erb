@@ -1,1 +1,6 @@
-<h1> Home page </h1>
+<h1>Users list</h1>
+<ul class="list-group">
+  <%@users.each do |user|%>
+      <%=render 'component/user', user: user%>
+  <% end %>
+</ul>
