@@ -12,8 +12,8 @@ class CommentsController < ApplicationController
     @comment.author_id = params[:user_id]
     @comment.post_id = params[:post_id]
     if @comment.save
-      flash[:success]='Your comment was created Successfully'
-      redirect_to user_post_url(id:params[:post_id],user_id:params[:user_id])
+      flash[:success] = 'Your comment was created Successfully'
+      redirect_to user_post_url(id: params[:post_id], user_id: params[:user_id])
     else
 
       render :new
@@ -26,8 +26,8 @@ class CommentsController < ApplicationController
     @comment = find_comment
     @comment.text = new_comment.text
     if @comment.save
-      flash[:success]='Your comment was created Successfully'
-      redirect_to user_post_url(id:params[:post_id], author_id:params[:user_id], user_id:params[:user_id])
+      flash[:success] = 'Your comment was created Successfully'
+      redirect_to user_post_url(id: params[:post_id], author_id: params[:user_id], user_id: params[:user_id])
     else
       render :edit
     end
