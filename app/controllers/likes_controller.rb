@@ -1,9 +1,7 @@
 class LikesController < ApplicationController
   def create
     like = Like.new(param_hash)
-    if (like.save)
-      redirect_back(fallback_location: user_path(id: param_hash[:author_id]))
-    end
+    redirect_back(fallback_location: user_path(id: param_hash[:author_id])) if like.save
   end
 
   private
