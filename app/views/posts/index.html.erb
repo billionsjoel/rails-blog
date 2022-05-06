@@ -2,6 +2,7 @@
         <header class="p-4">
             <%=render 'components/user',user:@user%>
         </header>
+        <%=link_to 'Create post',new_user_post_path(user_id:@user.id),class:'btn btn-primary'%>
         <div>
                 <%@posts.each do |post|%>
                     <div class="my-5">

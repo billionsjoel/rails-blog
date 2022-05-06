@@ -3,4 +3,8 @@
       <%= post.comments_counter ?  post.comments_counter : 0%>
     Likes:
      <%= post.likes_counter ?  post.likes_counter : 0%>
+
+    <%= button_to "like",
+     user_post_likes_path(post_id:post.id, user_id:post.author.id) ,scope: :like, method: :post,
+    class:'btn btn-danger'%>
 </p>
