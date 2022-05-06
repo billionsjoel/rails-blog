@@ -1,9 +1,8 @@
-<section class="container">
+<section class="container mt-4">
     <%=render 'components/postShow',post:@post%>
     <%=render 'components/comments',comments:@comments%>
-    <%=link_to 'Edit post', edit_user_post_path(@post),class:'btn btn-primary align-self-start'%>
     <div class='d-flex justify-content-around p-3'>
-    <%=link_to 'Edit post', edit_user_post_path(@post),class:'btn btn-secondary align-self-start'%>
-    <%= link_to "Comment",  new_user_post_comment_path(post_id:@post.id),class:'btn btn-secondary             align-self-start'%>
+    <%=link_to 'Edit post', edit_user_post_path(@post), class:'btn btn-primary align-self-start'%>
+    <%= link_to "Add Comment",  new_user_post_comment_path(post_id:@post.id), class:'btn btn-primary  align-self-start'%>
     </div>
 </section>
