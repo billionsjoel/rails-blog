@@ -49,7 +49,7 @@ class CommentsController < ApplicationController
     errors = @comment.errors.map do |error|
       error.full_message
     end
-    flash.now[:error] = errors.join(" | ")
+    flash.now[:error] = errors.join(' | ')
   end
 
   def create_new_comment
