@@ -1,11 +1,13 @@
 class PostsController < ApplicationController
   def index
-    @user = current_user
-    @posts = current_user.last_three_posts
+    @user = User.includes(:posts).find(params[:user_id])
+    @page = params.fetch(:page, 0).to_i
+    @posts = @user.posts.offset(@page * POSTS_PER_PAGE).limit(POSTS_PER_PAGE)
   end
 
   def show
     @post = find_post
+    @post = Post.includes(:comments).find(params[:id])
     @comments = @post.comments
   end
 
@@ -69,6 +71,6 @@ class PostsController < ApplicationController
   end
 
   def find_post
-    Post.find params[:id]
+    Post.find(params[:id])
   end
 end
