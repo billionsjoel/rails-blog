@@ -38,10 +38,10 @@ class PostsController < ApplicationController
 
     if @post.save
       success
-      redirect_to user_post_url(id: @post.id)
+      redirect_to user_post_url(@post)
     else
       show_errors
-      render :edit
+      render :edit,status:500
     end
   end
 
