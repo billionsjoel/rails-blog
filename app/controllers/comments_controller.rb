@@ -46,11 +46,10 @@ class CommentsController < ApplicationController
 
   def show_errors
     failed
-    # rubocop:disable Style/SymbolProc
     errors = @comment.errors.map do |error|
+      p error
       error.full_message
     end
-    # rubocop:enable Style/SymbolProc
     flash.now[:error] = errors.join(' | ')
   end
 

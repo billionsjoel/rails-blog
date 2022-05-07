@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  POSTS_PER_PAGE = 3
+
   def index
     @user = User.includes(:posts).find(params[:user_id])
     @page = params.fetch(:page, 0).to_i
@@ -48,11 +50,11 @@ class PostsController < ApplicationController
   private
 
   def success
-    flash[:notice] = 'Post created Successfully'
+    flash[:notice] = 'Your post was created Successfully'
   end
 
   def failed
-    flash.now[:alert] = 'Sorry, the post was not saved'
+    flash.now[:alert] = 'You post was not saved'
   end
 
   def show_errors

@@ -1,12 +1,11 @@
  <div class="card text-dark">
-
-        <div class="card-header"><%=post.title%></div>
-        <div class="card-body">
-            <p class="card-text">
-                <%=post.text%>
-            </p>
-        </div>
-        <div class="align-self-end p-2">
-            <%=render 'components/postCounter',post:post%>
-        </div>
+    <div class="card-header"><%=post.title%></div>
+    <div class="card-body">
+        <p class="card-text">
+            <%=post.text%>
+        </p>
     </div>
+    <div class="align-self-end p-2">
+        <%=render 'components/postCounters',post:post%>
+    </div>
+</div>

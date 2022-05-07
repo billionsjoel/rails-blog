@@ -1,7 +1,7 @@
 <div class="card">
     <header class="d-flex p-3 justify-content-between card-title">
         <%="#{post.title} by #{post.author.name}"%>
-        <%=render 'components/postCounter',post:post%>
+        <%=render 'components/postCounters',post:post%>
     </header>
     <p class="card-body">
         <%=post.text%>
