@@ -22,8 +22,9 @@ class PostsController < ApplicationController
     @post = create_new_post
     @post.author_id = params[:user_id]
     if @post.save
-      flash[:success] = 'Post created Successfully'
-      redirect_to user_posts_url(id: @post.id)
+      success
+      show_errors
+      render :new,status: 500
     else
       render :new
     end
@@ -36,16 +37,32 @@ class PostsController < ApplicationController
     @post.text = new_post.text
 
     if @post.save
-      flash[:success] = 'Post has been updated'
+      success
       redirect_to user_post_url(id: @post.id)
     else
-      @post = saved_post
-      flash.now[:alert] = 'Invalid Input'
+      show_errors
       render :edit
     end
   end
 
   private
+
+  def success
+    flash[:notice] = 'Your post was created      Successfully'
+  end
+
+  def failed
+    flash.now[:alert] = 'You post was not saved'
+  end
+
+  def show_errors
+    failed
+      errors = @post.errors.map do |error|
+        error.full_message
+      end
+      flash.now[:error] = errors.join(" | ")
+
+  end
 
   def create_new_post
     Post.new(params.require(:post).permit(:title, :text))
