@@ -41,7 +41,7 @@ class PostsController < ApplicationController
       redirect_to user_post_url(@post)
     else
       show_errors
-      render :edit,status:500
+      render :edit, status: 500
     end
   end
 

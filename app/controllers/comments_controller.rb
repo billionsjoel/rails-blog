@@ -30,7 +30,7 @@ class CommentsController < ApplicationController
       redirect_to user_post_url(id: params[:post_id], author_id: params[:user_id], user_id: params[:user_id])
     else
       show_errors
-      render :edit,status: 500
+      render :edit, status: 500
     end
   end
 
@@ -46,10 +46,10 @@ class CommentsController < ApplicationController
 
   def show_errors
     failed
-      errors = @comment.errors.map do |error|
-        error.full_message
-      end
-      flash.now[:error] = errors.join(" | ")
+    errors = @comment.errors.map do |error|
+      error.full_message
+    end
+    flash.now[:error] = errors.join(" | ")
   end
 
   def create_new_comment
