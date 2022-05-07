@@ -12,11 +12,11 @@ class CommentsController < ApplicationController
     @comment.author_id = params[:user_id]
     @comment.post_id = params[:post_id]
     if @comment.save
-      flash[:success] = 'Your comment was created Successfully'
+      success
       redirect_to user_post_url(id: params[:post_id], user_id: params[:user_id])
     else
-
-      render :new
+      show_errors
+      render :new, status: 500
     end
   end
 

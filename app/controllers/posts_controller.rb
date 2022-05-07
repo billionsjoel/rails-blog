@@ -6,13 +6,11 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = find_post
     @post = Post.includes(:comments).find(params[:id])
     @comments = @post.comments
   end
 
   def new
-    @user = User.find(params[:user_id])
     @post = Post.new
   end
 
@@ -25,10 +23,10 @@ class PostsController < ApplicationController
     @post.author_id = params[:user_id]
     if @post.save
       success
-      show_errors
-      render :new,status: 500
+      redirect_to user_post_url(id: @post.id)
     else
-      render :new
+      show_errors
+      render :new, status: 500
     end
   end
 
@@ -50,20 +48,17 @@ class PostsController < ApplicationController
   private
 
   def success
-    flash[:notice] = 'Your post was created      Successfully'
+    flash[:notice] = 'Post created Successfully'
   end
 
   def failed
-    flash.now[:alert] = 'You post was not saved'
+    flash.now[:alert] = 'Sorry, the post was not saved'
   end
 
   def show_errors
     failed
-      errors = @post.errors.map do |error|
-        error.full_message
-      end
-      flash.now[:error] = errors.join(" | ")
-
+    errors = @post.errors.map(&:full_message)
+    flash.now[:error] = errors.join(' | ')
   end
 
   def create_new_post
