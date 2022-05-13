@@ -10,6 +10,7 @@ gem 'cancancan'
 gem 'devise'
 gem 'erb-formatter'
 gem "factory_bot_rails"
+gem 'database_cleaner'
 gem 'rails', '~> 7.0.2', '>= 7.0.2.3'
 gem 'sass-rails'
 gem "pry-rails", "~> 0.3.9"
