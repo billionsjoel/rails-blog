@@ -62,9 +62,9 @@ group :development, :test do
   %w[rspec-core rspec-expectations rspec-mocks rspec-rails rspec-support].each do |lib|
     gem lib, git: "https://github.com/rspec/#{lib}.git", branch: 'main'
   end
-  gem "factory_bot_rails"
   gem 'database_cleaner-active_record'
-  gem "pry-rails", "~> 0.3.9"
+  gem 'factory_bot_rails'
+  gem 'pry-rails', '~> 0.3.9'
 end
 
 group :development do
