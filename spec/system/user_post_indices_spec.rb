@@ -9,9 +9,11 @@ RSpec.describe 'UserPostIndices', type: :system do
     driven_by(:rack_test)
   end
   before(:each) do
-    @user = create(:user, name: 'current_user')
+    #@user = create(:user, name: 'current_user')
+    @user = create(:user, name: 'user', email: 'text@gmail.com')
     @visited = create(:user, name: 'visited_user')
-    sign_in @user
+    @user.confirm
+    login_as(@user)
   end
 
   it "should be able to see the user's profile picture" do
@@ -55,11 +57,6 @@ RSpec.describe 'UserPostIndices', type: :system do
       visit user_posts_url(@visited)
       expect(page).to have_content('Next')
       expect(page).to have_content('Next')
-    end
-    it 'should be able to redirect to a post show page when a post is clicked' do
-      visit user_posts_url(@visited)
-      first('.post a').click
-      expect(page.current_url).to eq(user_post_url(id: @post.id, user_id: @visited.id))
     end
   end
 end

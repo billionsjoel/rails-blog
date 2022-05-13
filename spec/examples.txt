@@ -1,0 +1,35 @@
+example_id                                       | status | run_time        |
+------------------------------------------------ | ------ | --------------- |
+./spec/system/login_pages_spec.rb[1:1:1]         | passed | 0.01344 seconds |
+./spec/system/login_pages_spec.rb[1:1:2]         | passed | 0.1051 seconds  |
+./spec/system/login_pages_spec.rb[1:1:3]         | passed | 0.01514 seconds |
+./spec/system/login_pages_spec.rb[1:2:1]         | passed | 0.0382 seconds  |
+./spec/system/login_pages_spec.rb[1:2:2]         | passed | 1.93 seconds    |
+./spec/system/login_pages_spec.rb[1:2:3]         | passed | 0.14036 seconds |
+./spec/system/user_indices_spec.rb[1:1]          | passed | 2.11 seconds    |
+./spec/system/user_indices_spec.rb[1:2:1]        | passed | 0.03998 seconds |
+./spec/system/user_indices_spec.rb[1:2:2]        | passed | 0.11669 seconds |
+./spec/system/user_post_indices_spec.rb[1:1]     | passed | 0.03517 seconds |
+./spec/system/user_post_indices_spec.rb[1:2]     | passed | 1.77 seconds    |
+./spec/system/user_post_indices_spec.rb[1:3:1]   | passed | 0.03604 seconds |
+./spec/system/user_post_indices_spec.rb[1:3:2]   | passed | 0.03868 seconds |
+./spec/system/user_post_indices_spec.rb[1:3:3]   | passed | 0.12622 seconds |
+./spec/system/user_post_indices_spec.rb[1:3:4:1] | passed | 0.04022 seconds |
+./spec/system/user_post_indices_spec.rb[1:3:4:2] | passed | 0.16717 seconds |
+./spec/system/user_post_indices_spec.rb[1:3:5]   | passed | 0.09646 seconds |
+./spec/system/user_post_indices_spec.rb[1:3:6]   | passed | 0.04031 seconds |
+./spec/system/user_post_shows_spec.rb[1:1]       | passed | 0.03798 seconds |
+./spec/system/user_post_shows_spec.rb[1:2]       | passed | 0.0409 seconds  |
+./spec/system/user_post_shows_spec.rb[1:3]       | passed | 1.81 seconds    |
+./spec/system/user_post_shows_spec.rb[1:4]       | passed | 0.03904 seconds |
+./spec/system/user_post_shows_spec.rb[1:5]       | passed | 0.03642 seconds |
+./spec/system/user_post_shows_spec.rb[1:6]       | passed | 0.10909 seconds |
+./spec/system/user_post_shows_spec.rb[1:7]       | passed | 0.11375 seconds |
+./spec/system/userpages_spec.rb[1:1:1]           | passed | 1.73 seconds    |
+./spec/system/userpages_spec.rb[1:1:2]           | passed | 0.03322 seconds |
+./spec/system/userpages_spec.rb[1:1:3]           | passed | 0.02896 seconds |
+./spec/system/userpages_spec.rb[1:1:4]           | passed | 0.03078 seconds |
+./spec/system/userpages_spec.rb[1:1:5]           | passed | 0.24776 seconds |
+./spec/system/userpages_spec.rb[1:1:6]           | passed | 0.0348 seconds  |
+./spec/system/userpages_spec.rb[1:1:7:1]         | passed | 0.05905 seconds |
+./spec/system/userpages_spec.rb[1:1:7:2]         | passed | 0.20688 seconds |

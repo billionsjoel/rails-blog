@@ -6,8 +6,10 @@ RSpec.describe 'Userpages', type: :system do
   end
   describe 'On usershow page' do
     before(:each) do
-      @user = create(:user, name: 'current_user')
-      sign_in @user
+      @user = create(:user, name: 'user', email: 'text@gmail.com')
+      @visited = create(:user, name: 'visited_user')
+      @user.confirm
+      login_as(@user)
       visit user_url(@user)
     end
 

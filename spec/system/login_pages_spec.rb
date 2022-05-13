@@ -31,5 +31,15 @@ RSpec.describe 'LoginPages', type: :system do
       click_button 'Log in'
       expect(page).to have_content('Invalid Email or password')
     end
+
+    it 'should throw an error if login inputs are incorrent' do
+      @user = create(:user, name: 'user', email: 'text@gmail.com')
+      @user.confirm
+      fill_in 'Email', with: @user.email
+      fill_in 'Password', with: @user.password
+      click_button 'Log in'
+      expect(current_path).to eq root_path
+      #expect(page).to have_content('Signed in successfully')
+    end
   end
 end
