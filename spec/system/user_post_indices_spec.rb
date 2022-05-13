@@ -9,7 +9,7 @@ RSpec.describe 'UserPostIndices', type: :system do
     driven_by(:rack_test)
   end
   before(:each) do
-    #@user = create(:user, name: 'current_user')
+    # @user = create(:user, name: 'current_user')
     @user = create(:user, name: 'user', email: 'text@gmail.com')
     @visited = create(:user, name: 'visited_user')
     @user.confirm

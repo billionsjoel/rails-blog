@@ -7,7 +7,7 @@ RSpec.describe 'UserIndices', type: :system do
   before(:each) do
     @user = create(:user, name: 'user', email: 'text@gmail.com')
     @user.confirm
-     login_as(@user)
+    login_as(@user)
   end
   it 'should be able to view other users' do
     create(:user, name: 'other')
