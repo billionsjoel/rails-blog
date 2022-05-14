@@ -30,15 +30,11 @@ module Api
 
       def signup
         puts params
-        @user = User.new(signup_params)
-        if @user.save
+        @user = User.create!(signup_params)
           token = JsonWebToken.encode(user_id: @user.id)
           time = Time.now + 24.hours.to_i
           render json: { token: token, exp: time.strftime('%m-%d-%Y %H:%M'),
                          Name: @user.name }, status: :ok
-        else
-          render json: { error: 'unauthorized' }, status: :unauthorized
-        end
       end
 
       private
@@ -48,7 +44,7 @@ module Api
       end
 
       def signup_params
-        params.permit(:Name, :Photo, :Bio, :email, :password, :password_confirmation, :confirmed_at, :role)
+        params.permit(:name, :Photo, :Bio, :email, :password, :password_confirmation, :confirmed_at, :role)
       end
     end
   end
