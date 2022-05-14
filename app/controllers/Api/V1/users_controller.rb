@@ -1,3 +1,4 @@
+# rubocop:disable Style/SymbolArray:
 module Api
   module V1
     require 'json_web_token'
@@ -52,3 +53,4 @@ module Api
     end
   end
 end
+# rubocop:enable Style/SymbolArray:

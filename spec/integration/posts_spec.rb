@@ -1,4 +1,8 @@
 require 'swagger_helper'
+# rubocop:disable Layout/LineLength:
+# rubocop:disable Metrics/BlockLength:
+# rubocop:disable Style/HashSyntax:
+# rubocop:disable Lint/UselessAssignment
 
 describe 'Posts API' do
   path '/api/v1/users/{user_id}/posts/{post_id}/comments' do
@@ -106,3 +110,8 @@ describe 'Posts API' do
     end
   end
 end
+
+# rubocop:enable Layout/LineLength:
+# rubocop:enable Metrics/BlockLength:
+# rubocop:enable Style/HashSyntax:
+# rubocop:enable Lint/UselessAssignment:

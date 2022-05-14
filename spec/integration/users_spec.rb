@@ -1,3 +1,7 @@
+# rubocop:disable Layout/LineLength:
+# rubocop:disable Metrics/BlockLength:
+# rubocop:disable Style/BlockDelimiters:
+
 require 'swagger_helper'
 
 describe 'Users API' do
@@ -94,3 +98,7 @@ describe 'Users API' do
     end
   end
 end
+
+# rubocop:enable Layout/LineLength:
+# rubocop:enable Metrics/BlockLength:
+# rubocop:enable Style/BlockDelimiters:
