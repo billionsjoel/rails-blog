@@ -1,22 +1,18 @@
 require 'swagger_helper'
 # rubocop:disable Layout/LineLength:
 # rubocop:disable Metrics/BlockLength:
+# rubocop:disable Style/HashSyntax:
+# rubocop:disable Lint/UselessAssignment
 
 describe 'Posts API' do
-  path '/api/v1/users/posts/getpostcomments' do
-    post 'List of comments for a particular user' do
+  path '/api/v1/users/{user_id}/posts/{post_id}/comments' do
+    get 'List of comments for a particular user' do
       tags 'Comments'
       produces 'application/json'
       consumes 'application/json'
       parameter name: :Authorization, in: :header, type: :string
-      parameter name: :params, in: :body, schema: {
-        type: :object,
-        properties: {
-          user_id: { type: :integer },
-          post_id: { type: :integer }
-        },
-        required: %w[user_id post_id]
-      }
+      parameter name: :user_id, :in => :path, :type => :integer
+      parameter name: :post_id, :in => :path, :type => :integer
       security [JWT: {}]
       response '200', 'Comments list' do
         @user = FactoryBot.create(:user)
@@ -31,15 +27,15 @@ describe 'Posts API' do
         let(:Authorization) do
           'eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxNjUwLCJleHAiOjE2NTI1NTM3NTd9.f6qq8VRXV0Vs12-DEM8go7dKa1bkooaqN7HNUMny_do'
         end
-        let(:params) { { post_id: p, user_id: u } }
+        let(:post_id) { p }
+        let(:user_id) { u }
         run_test!
       end
 
-      response '404', 'post not found' do
-        let(:Authorization) do
-          'eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxNjUwLCJleHAiOjE2NTI1NTM3NTd9.f6qq8VRXV0Vs12-DEM8go7dKa1bkooaqN7HNUMny_do'
-        end
-        let(:params) { {} }
+      response '401', 'Unauthorized' do
+        let(:Authorization) { '' }
+        let(:post_id) { 12 }
+        let(:user_id) { 4 }
         run_test!
       end
     end
@@ -80,6 +76,42 @@ describe 'Posts API' do
       end
     end
   end
+
+  path '/api/v1/users/{user_id}/posts' do
+    get 'List of posts for a particular user' do
+      tags 'Posts'
+      produces 'application/json'
+      parameter name: :Authorization, in: :header, type: :string
+      parameter name: :user_id, :in => :path, :type => :integer
+      security [JWT: {}]
+      response '200', 'Posts list' do
+        @user = FactoryBot.create(:user)
+        m = 3
+        while m > 0
+          @post = FactoryBot.create(:post, user_id: @user.id, Title: 'Sample Post', Text: 'Sample Text')
+          m -= 1
+        end
+        p = @post.id
+        u = @user.id
+        let(:Authorization) do
+          'eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxNjUwLCJleHAiOjE2NTI1NTM3NTd9.f6qq8VRXV0Vs12-DEM8go7dKa1bkooaqN7HNUMny_do'
+        end
+        let(:user_id) { u }
+        run_test!
+      end
+
+      response '401', 'Unauthorized' do
+        let(:Authorization) do
+          ''
+        end
+        let(:user_id) { '12' }
+        run_test!
+      end
+    end
+  end
 end
+
 # rubocop:enable Layout/LineLength:
 # rubocop:enable Metrics/BlockLength:
+# rubocop:enable Style/HashSyntax:
+# rubocop:enable Lint/UselessAssignment:

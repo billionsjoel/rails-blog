@@ -1,5 +1,8 @@
-require 'swagger_helper'
 # rubocop:disable Layout/LineLength:
+# rubocop:disable Metrics/BlockLength:
+# rubocop:disable Style/BlockDelimiters:
+
+require 'swagger_helper'
 
 describe 'Users API' do
   path '/api/v1/users/login' do
@@ -39,7 +42,7 @@ describe 'Users API' do
       parameter name: 'Authorization', in: :header, type: :string
       response '200', 'Users list' do
         let(:Authorization) do
-          'eyJhbGciOiJIUzI1NiJ9.eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NTI2MDM4NzV9.Ppu5WopObStS9BgCdzC-swzCjJEZwDhIhNyp_yMwPj4'
+          'eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxNjUwLCJleHAiOjE2NTI1NTM3NTd9.f6qq8VRXV0Vs12-DEM8go7dKa1bkooaqN7HNUMny_do'
         end
         run_test! do |response|
           data = JSON.parse(response.body)
@@ -53,5 +56,49 @@ describe 'Users API' do
       end
     end
   end
+
+  path '/api/v1/users/signup' do
+    post 'Register a new user' do
+      tags 'User Registration'
+      consumes 'application/json'
+      parameter name: :params, in: :body, schema: {
+        type: :object,
+        properties: {
+          Name: { type: :string },
+          email: { type: :string },
+          password: { type: :string },
+          password_confirmation: { type: :string },
+          Bio: { type: :string },
+          confirmed_at: { type: :string },
+          Photo: { type: :string },
+          role: { type: :string }
+        },
+        required: %w[Name email password password_confirmation Bio confirmed_at Photo role]
+      }
+      response '200', 'User created' do
+        let(:params) {
+          {
+            Name: Faker::Name.name,
+            email: Faker::Internet.email,
+            password: 'secret',
+            password_confirmation: 'secret',
+            Bio: Faker::Lorem.sentence,
+            confirmed_at: Time.now,
+            Photo: Faker::Avatar.image,
+            role: ''
+          }
+        }
+        run_test!
+      end
+
+      response '401', 'Invalid request' do
+        let(:params) { { email: '' } }
+        run_test!
+      end
+    end
+  end
 end
+
 # rubocop:enable Layout/LineLength:
+# rubocop:enable Metrics/BlockLength:
+# rubocop:enable Style/BlockDelimiters:

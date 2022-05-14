@@ -4,10 +4,12 @@ module Api
       before_action :authorize_request
 
       def list_comments
+        puts params
         user_id = params[:user_id]
         post_id = params[:post_id]
-        if user_id && post_id
-          comments = Comment.where(author_id: user_id, post_id: post_id)
+        @post = Post.find(post_id)
+        if user_id && post_id && @post
+          comments = Comment.where(user_id: user_id, post_id: post_id)
           render json: { status: 'SUCCESS', message: 'Loaded comments successfully', data: comments },
                  status: :ok
         else
@@ -30,6 +32,18 @@ module Api
           end
         else
           render json: { status: 'ERROR', message: 'Parameters incomplete' }, status: :not_found
+        end
+      end
+
+      def users_posts
+        user_id = params[:user_id]
+        @user = User.find(user_id)
+        if user_id && @user
+          posts = Post.where(author_id: user_id)
+          render json: { status: 'SUCCESS', message: 'Loaded posts successfully', data: posts },
+                 status: :ok
+        else
+          render json: { status: 'ERROR', message: 'User not found' }, status: :not_found
         end
       end
     end
