@@ -378,6 +378,8 @@ DEPENDENCIES
   rspec-rails!
   rspec-support!
   rswag
+  rswag-specs
+  rswag-ui
   rubocop (>= 1.0, < 2.0)
   sass-rails
   selenium-webdriver
