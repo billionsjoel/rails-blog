@@ -1,4 +1,6 @@
 require 'swagger_helper'
+# rubocop:disable Layout/LineLength:
+# rubocop:disable Metrics/BlockLength:
 
 describe 'Posts API' do
   path '/api/v1/users/posts/getpostcomments' do
@@ -79,3 +81,5 @@ describe 'Posts API' do
     end
   end
 end
+# rubocop:enable Layout/LineLength:
+# rubocop:enable Metrics/BlockLength:

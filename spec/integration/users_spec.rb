@@ -1,4 +1,5 @@
 require 'swagger_helper'
+# rubocop:disable Layout/LineLength:
 
 describe 'Users API' do
   path '/api/v1/users/login' do
@@ -53,3 +54,4 @@ describe 'Users API' do
     end
   end
 end
+# rubocop:enable Layout/LineLength:
