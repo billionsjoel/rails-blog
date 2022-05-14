@@ -1,5 +1,5 @@
 # RUBY BLOG APP
-In this project, I create all controllers and views for my Blog app. As i won't be processing any data yet, i will add simple placeholders for my views with plain HTML.
+In this project, i develop a fully functional blog that can authenticate and authorize users using devise. I also write a backend api with rails, swagger-Ui documentation and rspec tests.
 
 ![screenshot](./appscreenshot.png)
 
@@ -13,6 +13,18 @@ In this project, I create all controllers and views for my Blog app. As i won't 
 
 ## Built With
 - Ruby on Rails
+- Gems
+  - Rspec
+  - Capybara
+  - Swagger-UI
+  - JWT Authentication
+  - FactoryBot
+  - Selenium-webdriver
+  - Bcrypt
+  - Letter-opener
+  - Faker
+  - cancancan
+  - Devise
 
 ## Getting Started
 - Make sure you have Ruby installed in your system.
@@ -25,6 +37,9 @@ Navigate to the repository by running `cd rails-blog`.
 ## Installation
 - Clone the repo and run `bundle install` in the command line to install the dependencies.
 - run `rails s`
+
+## API Documentation using SWAGGER-UI
+Open [http://localhost:3000/api-docs/index.html](http://localhost:3000/api-docs/index.html) in your browser
 
 ## Author
 

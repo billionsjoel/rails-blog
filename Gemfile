@@ -40,9 +40,14 @@ gem 'jbuilder'
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem 'kredis'
-
+# Use Json Web Token (JWT) for token based authentication
+gem 'jwt'
+# Use ActiveModel has_secure_password
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
-# gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt', '~> 3.1.7'
+
+gem 'rswag'
+gem 'rswag-ui'
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
@@ -65,6 +70,7 @@ group :development, :test do
   gem 'database_cleaner-active_record'
   gem 'factory_bot_rails'
   gem 'pry-rails', '~> 0.3.9'
+  gem 'rswag-specs'
 end
 
 group :development do
