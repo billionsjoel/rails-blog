@@ -31,10 +31,10 @@ module Api
       def signup
         puts params
         @user = User.create!(signup_params)
-          token = JsonWebToken.encode(user_id: @user.id)
-          time = Time.now + 24.hours.to_i
-          render json: { token: token, exp: time.strftime('%m-%d-%Y %H:%M'),
-                         Name: @user.name }, status: :ok
+        token = JsonWebToken.encode(user_id: @user.id)
+        time = Time.now + 24.hours.to_i
+        render json: { token: token, exp: time.strftime('%m-%d-%Y %H:%M'),
+                       Name: @user.name }, status: :ok
       end
 
       private

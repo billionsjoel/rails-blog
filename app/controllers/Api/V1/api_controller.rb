@@ -1,8 +1,8 @@
 # rubocop:disable Lint/DuplicateBranch
 class Api::V1::ApiController < ActionController::API
-rescue_from ActiveRecord::RecordInvalid do |e|
-    render json:  { errors: e.message }, status: :unauthorized
-end
+  rescue_from ActiveRecord::RecordInvalid do |e|
+    render json: { errors: e.message }, status: :unauthorized
+  end
   def not_found
     render json: { error: 'not_found' }
   end
