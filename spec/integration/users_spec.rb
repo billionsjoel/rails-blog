@@ -38,7 +38,7 @@ describe 'Users API' do
       parameter name: 'Authorization', in: :header, type: :string
       response '200', 'Users list' do
         let(:Authorization) do
-          'eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxNjUwLCJleHAiOjE2NTI1NTM3NTd9.f6qq8VRXV0Vs12-DEM8go7dKa1bkooaqN7HNUMny_do'
+          'eyJhbGciOiJIUzI1NiJ9.eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NTI2MDM4NzV9.Ppu5WopObStS9BgCdzC-swzCjJEZwDhIhNyp_yMwPj4'
         end
         run_test! do |response|
           data = JSON.parse(response.body)
