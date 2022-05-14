@@ -11,10 +11,8 @@ class Api::V1::ApiController < ActionController::API
       @current_user = User.find(@decoded[:user_id])
     rescue ActiveRecord::RecordNotFound => e
       render json: { errors: e.message }, status: :unauthorized
-    # rubocop:disable Lint/DuplicateBranch
     rescue JWT::DecodeError => e
       render json: { errors: e.message }, status: :unauthorized
-      # rubocop:enable Lint/DuplicateBranch
     end
   end
 end
