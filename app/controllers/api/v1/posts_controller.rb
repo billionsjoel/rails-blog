@@ -7,7 +7,7 @@ module Api
         user_id = params[:user_id]
         post_id = params[:post_id]
         if user_id && post_id
-          comments = Comment.where(user_id: user_id, post_id: post_id)
+          comments = Comment.where(author_id: user_id, post_id: post_id)
           render json: { status: 'SUCCESS', message: 'Loaded comments successfully', data: comments },
                  status: :ok
         else
